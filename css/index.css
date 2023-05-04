@@ -22,9 +22,10 @@ body {
     background-color: #faf6ed;
 }
 
-header {
+header,
+footer {
     grid-column: 3/-1;
-    margin-top: 30px;
+    margin: 30px 0;
     background-color: #FB5;
     padding: 10px;
 }
@@ -45,26 +46,27 @@ main {
     grid-column: 2/4;
 }
 
+.container-grid {
+    display: grid;
+    grid-template-columns: 80px minmax(120px, 300px) 1fr;
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.container-grid h1 {
+    grid-column: 1/-1;
+}
+
 main h1 {
     font-family: 'Playfair Display SC', serif;
     font-size: 6rem;
     line-height: 1;
-    margin-top: 60px;
-}
-
-main #animais {
-    display: grid;
-    grid-template-columns: 90px minmax(120px, 300px) 1fr;
-    gap: 30px;
-}
-
-main #animais h1 {
-    grid-column: 1/-1;
+    margin-top: 30px;
 }
 
 main #animais #fotos-animais-container {
     grid-column: 2;
-    max-height: 370px;    
+    max-height: 370px;
     overflow-y: scroll;
 }
 
@@ -98,10 +100,102 @@ main #animais #animais-descricao h2::before {
     background-color: #FB5;
 }
 
-main #animais #animais-descricao p + p {
+main #animais #animais-descricao p+p {
     margin-top: 15px;
 }
 
-main #animais #animais-descricao > section + section {
+main #animais #animais-descricao>section+section {
     margin-top: 30px;
+}
+
+/* FAQ */
+
+main #faq dl {
+    grid-column: 2/-1;
+}
+
+main #faq dl dt {
+    color: #ee5544;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    margin: 30px 0 10px;
+}
+
+main #faq dl dt::before {
+    content: "";
+    display: inline-block;
+    width: 17.5px;
+    height: 10px;
+    background-color: #FB5;
+    margin-right: 10px;
+}
+
+/* CONTATO */
+
+main #contato picture {
+    grid-column: 2;
+}
+
+main #contato ul li+li {
+    margin-top: 15px;
+}
+
+main #contato ul li::before {
+    content: "";
+    display: inline-block;
+    width: 17.5px;
+    height: 10px;
+    background-color: #FB5;
+    margin-right: 10px;
+}
+
+footer p {
+    padding: 10px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+@media only screen and (max-width: 750px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    header,
+    footer,
+    main {
+        grid-column: 1;
+    }
+
+    header {
+        margin-top: 0;
+    }
+
+    footer {
+        margin-bottom: 0;
+    }
+
+    .container-grid {
+        grid-template-columns: minmax(120px, 200px) 1fr;
+    }
+
+    .container-grid h1 {
+        font-size: 3rem;
+    }
+
+    main #animais #fotos-animais-container {
+        grid-column: 1;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main #faq dl,
+    main #contato picture {
+        grid-column: 1;
+    }
+
 }
