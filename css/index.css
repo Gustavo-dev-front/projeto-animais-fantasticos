@@ -70,6 +70,10 @@ main #animais #fotos-animais-container {
     overflow-y: scroll;
 }
 
+main #animais #fotos-animais-container img {
+    cursor: pointer;
+}
+
 main #animais #fotos-animais-container::-webkit-scrollbar {
     width: 18px;
 }
@@ -104,8 +108,8 @@ main #animais #animais-descricao p+p {
     margin-top: 15px;
 }
 
-main #animais #animais-descricao>section+section {
-    margin-top: 30px;
+main #animais #animais-descricao>section {
+    display: none;
 }
 
 /* FAQ */
@@ -198,4 +202,19 @@ footer p {
         grid-column: 1;
     }
 
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0px, 0px);
+    } to {
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px);
+    }
+}
+
+.js-display-on {
+    display: block !important;
+    animation: show 1s forwards;
 }
