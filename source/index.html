@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Playfair+Display+SC&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
       <a href="#animais">ANIMAIS</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">CONTATO</a>
-      <a href="https://www.origamid.com/" target="_blank">DEV →</a>
+      <a data-modal-button="open" href="#">LOGIN → </a>
     </nav>
   </header>
 
@@ -210,6 +210,17 @@
       </ul>
     </section>
   </main>
+
+  <section id="modal-container" data-component="modal-container" data-display="off" data-modal-button="close">
+    <form action="">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" id="email" placeholder="Seu e-mail">
+      <label for="senha">Senha</label>
+      <input type="password" name="senha" id="senha" placeholder="Sua senha">
+      <button type="submit" data-modal-button="login">Entrar</button>
+      <button data-modal-button="close">X</button>
+    </form>
+  </section>
 
   <footer>
     <p>Todos os direitos reservados.</p>

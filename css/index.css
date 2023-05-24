@@ -1,13 +1,7 @@
 @charset "UTF-8";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: inherit;
-  list-style: none;
-  text-decoration: none;
-}
+@import url(../css/reset.css);
+@import url(../css/animation.css);
+@import url(../css/data.css);
 
 img {
   display: block;
@@ -218,39 +212,3 @@ footer p {
   }
 }
 
-@keyframes show {
-  from {
-    opacity: 0;
-    transform: translate3d(-30px, 0px, 0px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
-  }
-}
-
-[data-display="on"] {
-  display: block !important;
-  animation: show 1s forwards;
-}
-
-@keyframes js-scroll {
-  from {
-    opacity: 0;
-    transform: translate3d(-100px, 0px, 0px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
-  }
-}
-
-[data-anime="scroll"] {
-  opacity: 0;
-}
-
-[data-anime="scroll"].ativo {
-  animation: js-scroll 0.3s alternate forwards;
-}

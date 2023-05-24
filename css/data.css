@@ -1,0 +1,16 @@
+[data-display="on"] {
+  display: block !important;
+  animation: show 1s forwards;
+}
+
+[data-display="off"] {
+    display: none !important;
+  }
+
+[data-anime="scroll"] {
+  opacity: 0;
+}
+
+[data-anime="scroll"].ativo {
+  animation: js-scroll 0.3s alternate forwards;
+}
