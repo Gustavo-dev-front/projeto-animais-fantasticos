@@ -22,18 +22,55 @@ footer {
   margin: 30px 0;
   background-color: #fb5;
   padding: 10px;
-}
-
-header a {
-  display: inline-block;
-  padding: 10px;
   font-size: 0.875rem;
   font-weight: 700;
   font-family: "IBM Plex Mono", monospace;
 }
 
-header a + a {
-  margin-left: 15px;
+header a {
+  display: inline-block;
+  padding: 10px;
+}
+
+header .main-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header [data-dropdown-menu] {
+  position: relative;
+}
+
+header [data-dropdown-menu]:hover > ul,
+header [data-dropdown-menu].ativo > ul {
+  display: block;
+  animation: show 0.3s forwards;
+  z-index: 1;
+}
+
+header [data-dropdown-menu] > ul {
+  display: none;
+  position: absolute;
+  background-color: #ee5544;
+  min-width: 150px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+header [data-dropdown-menu] > ul::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ee5544;
+}
+
+header [data-dropdown-menu] > ul > li > a:hover {
+  color: white;
 }
 
 main {
@@ -164,9 +201,6 @@ main #contato ul li::before {
 
 footer p {
   padding: 10px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  font-family: "IBM Plex Mono", monospace;
 }
 
 @media only screen and (max-width: 750px) {
@@ -211,4 +245,3 @@ footer p {
     grid-column: 1;
   }
 }
-

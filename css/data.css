@@ -4,8 +4,8 @@
 }
 
 [data-display="off"] {
-    display: none !important;
-  }
+  display: none !important;
+}
 
 [data-anime="scroll"] {
   opacity: 0;
