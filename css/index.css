@@ -190,6 +190,12 @@ main #contato picture {
   grid-column: 2;
 }
 
+main #contato ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 main #contato ul li + li {
   margin-top: 15px;
 }
@@ -200,7 +206,20 @@ main #contato ul li::before {
   width: 17.5px;
   height: 10px;
   background-color: #fb5;
-  margin-right: 10px;
+}
+
+main #contato ul li[data-date]::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: #ee5544;
+}
+
+main #contato ul li[data-date].aberto::after {
+  background-color: greenyellow;
 }
 
 footer p {

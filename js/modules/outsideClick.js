@@ -8,7 +8,6 @@ export default function outsideClick(element, events) {
 
     function handleOutsideClick(event) {
         if (!element.contains(event.target)) {
-            console.log('teste');
             element.classList.remove('ativo');
             events.forEach((event) => {
                 html.removeEventListener(event, handleOutsideClick);
