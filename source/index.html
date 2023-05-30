@@ -15,11 +15,9 @@
 <body>
   <header>
     <nav>
+      <button data-mobile-menu>MENU</button>
       <ul class="main-menu">
         <li><a href="#animais">ANIMAIS</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contato">CONTATO</a></li>
-        <li><a data-modal-button="open" href="#">LOGIN → </a></li>
         <li data-dropdown-menu>
           <a href="sobre.html">SOBRE</a>
           <ul class="dropdown-menu">
@@ -29,12 +27,15 @@
             <li><a href="#">SOBRE 4</a></li>
           </ul>
         </li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">CONTATO</a></li>
+        <li><a data-modal-button="open" href="#">LOGIN → </a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="animais" class="container-grid" data-anime="scroll">
+    <section id="animais" class="container-grid" data-anime="scroll" data-display="on">
       <h1 class="titulos">Animais Fantásticos</h1>
       <div id="fotos-animais-container" data-component="lista-animais">
         <img src="../img/imagem1.jpg" alt="Raposa" data-animal="raposa" />

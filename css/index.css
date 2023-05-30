@@ -84,6 +84,10 @@ main {
   padding: 0 10px;
 }
 
+.container-grid[data-display="on"] {
+  display: grid !important;
+}
+
 .container-grid h1 {
   grid-column: 1/-1;
 }
