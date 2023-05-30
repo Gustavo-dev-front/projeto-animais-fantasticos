@@ -1,0 +1,25 @@
+.container-numeros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  grid-column: 2/-1;
+  padding: 100px 0px;
+}
+
+.container-numeros h2 {
+  font-family: "Playfair Display SC", serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.container-numeros span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e54;
+}
+
+@media only screen and (max-width: 550px) {
+  .container-numeros {
+    grid-column: 1;
+  }
+}
