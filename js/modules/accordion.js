@@ -1,16 +1,16 @@
-export default function initFaq() {
-  const listaFaq = document.querySelectorAll("#faq dl dt");
-  listaFaq[0].nextElementSibling.dataset.display = 'on';
-
-  function abrirResposta(event) {
-    const textToShow = event.target.nextElementSibling;
-    if (textToShow.dataset.display !== 'on')
-      textToShow.dataset.display = 'on';
-    else
-      textToShow.dataset.display = 'off';
+export default class Accordion {
+  constructor(seletor) {
+    this.seletor = document.querySelectorAll(seletor);
   }
 
-  listaFaq.forEach((item) => {
-    item.addEventListener("click", abrirResposta);
-  });
+  abrirResposta(event) {
+    const textToShow = event.target.nextElementSibling;
+    if (textToShow.dataset.display !== "on") textToShow.dataset.display = "on";
+    else textToShow.dataset.display = "off";
+  }
+
+  init() {
+    this.seletor[0].nextElementSibling.dataset.display = "on";
+    this.seletor.forEach((elemento) => elemento.addEventListener("click", this.abrirResposta));
+  }
 }

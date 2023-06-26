@@ -16,4 +16,5 @@ export default class ScrollSuave {
     this.seletor.forEach((elemento) => elemento.addEventListener("click", this.scrollar));
     return this;
   }
+
 }
