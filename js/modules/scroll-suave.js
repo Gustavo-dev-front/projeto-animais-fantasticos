@@ -1,18 +1,19 @@
-export default function initScrollSmooth() {
-  const links = document.querySelectorAll('header nav a[href^="#"]:not([href="#"])');
-
-  function sectionScroll(event) {
-    event.preventDefault();
-    const sectionToShow = document.querySelector(
-      event.target.getAttribute("href")
-    );
-    sectionToShow.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+export default class ScrollSuave {
+  constructor(seletor, options) {
+    this.seletor = document.querySelectorAll(seletor);
+    this.options = options || { behavior: "smooth", block: "start" };
+    this.scrollar = this.scrollar.bind(this);
   }
 
-  links.forEach((link) => {
-    link.addEventListener("click", sectionScroll);
-  });
+  scrollar(event) {
+    event.preventDefault();
+    const href = event.target.getAttribute("href");
+    const elemento = document.querySelector(href);
+    elemento.scrollIntoView(this.options);
+  }
+
+  init() {
+    this.seletor.forEach((elemento) => elemento.addEventListener("click", this.scrollar));
+    return this;
+  }
 }
