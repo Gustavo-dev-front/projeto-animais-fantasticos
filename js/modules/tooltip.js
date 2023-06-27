@@ -1,45 +1,50 @@
-export default function initTooltip() {
-    const map = document.querySelector('[data-tooltip]');
-    map.addEventListener('mouseenter', onMouseOver);
+export default class Tooltip {
+  constructor(element) {
+    this.element = document.querySelector(element);
+    this.tooltip;
+    this.onMouseOver = this.onMouseOver.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+  }
 
-    function onMouseOver(event) {
-        const tooltip = createTooltip(this);
-        document.body.appendChild(tooltip);
-        tooltip.style.top = `${event.pageY + 20}px`;
-        tooltip.style.left = `${event.pageX + 20}px`;
+  onMouseOver(event) {
+    const element = event.target;
+    this.createTooltip();
+    document.body.appendChild(this.tooltip);
+    this.tooltip.style.top = `${event.pageY + 20}px`;
+    this.tooltip.style.left = `${event.pageX + 20}px`;
 
-        this.addEventListener('mouseleave', onMouseLeave);
-        onMouseLeave.tooltip = tooltip;
-        onMouseLeave.map = this;
+    element.addEventListener("mouseleave", this.onMouseLeave);
+    element.addEventListener("mousemove", this.onMouseMove);
+  }
 
-        onMouseMove.tooltip = tooltip;
-        this.addEventListener('mousemove', onMouseMove);
-    }
+  createTooltip() {
+    const tooltip = document.createElement("div");
+    tooltip.classList.add("tooltip");
+    tooltip.innerText = this.element.dataset.tooltip;
+    this.tooltip = tooltip;
+  }
 
-    function createTooltip(element) {
-        const tooltip = document.createElement('div');
-        tooltip.classList.add('tooltip');
-        tooltip.innerText = element.dataset.tooltip;
-        return tooltip;
-    }
+  onMouseMove(event) {
+    if (event.pageX + this.tooltip.offsetWidth + 40 > window.innerWidth) {
+      this.tooltip.style.left = `${event.pageX - 160}px`;
+    } else this.tooltip.style.left = `${event.pageX + 20}px`;
 
-    const onMouseLeave = {
-        handleEvent() {
-            deleteTooltip(this.tooltip);
-            this.map.removeEventListener('mousemove', onMouseMove);
-            this.map.removeEventListener('mouseleave', onMouseLeave);
-        }
-    }
+    this.tooltip.style.top = `${event.pageY + 20}px`;
+  }
 
-    const onMouseMove = {
-        handleEvent(event) {
-            this.tooltip.style.top = `${event.pageY + 20}px`;
-            this.tooltip.style.left = `${event.pageX + 20}px`;
-        }
-    }
+  onMouseLeave() {
+    this.deleteTooltip(this.tooltip);
+    this.element.removeEventListener("mousemove", this.onMouseMove);
+    this.element.removeEventListener("mouseleave", this.onMouseLeave);
+  }
 
-    function deleteTooltip(element) {
-        element.remove();
-    }
+  deleteTooltip(element) {
+    element.remove();
+  }
+
+  init() {
+    this.element.addEventListener("mouseenter", this.onMouseOver);
+    return this;
+  }
 }
-
