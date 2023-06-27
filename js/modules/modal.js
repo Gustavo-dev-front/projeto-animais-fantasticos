@@ -1,31 +1,31 @@
-export default function initModal() {
+export default class Modal {
+  constructor(container, open, close) {
+    this.container = document.querySelector(container);
+    this.open = document.querySelector(open);
+    this.close = document.querySelector(close);
+    this.actionInModal = this.actionInModal.bind(this);
+  }
 
-    const btOpenModal = document.querySelector('[data-modal-button="open"]');
-    btOpenModal.addEventListener('click', actionInModal);
+  actionInModal(event) {
+    event.preventDefault();
+    const elementData = event.target.dataset.modalButton;
+    if (elementData === "open") this.openModal();
+    else if (elementData === "close") this.closeModal();
+  }
 
-    const btCloseModal = document.querySelector('[data-modal-button="close"]')
-    btCloseModal.addEventListener('click', actionInModal);
+  openModal() {
+    this.container.dataset.display = "on";
+  }
 
-    const modal = document.querySelector('[data-component="modal-container"]');
-    modal.addEventListener('click', actionInModal);
+  closeModal() {
+    this.container.dataset.display = "off";
+  }
 
-    function actionInModal(event) {
-        event.preventDefault();
-        if (event.target.dataset.modalButton === 'open')
-            openModal();
-        /* modal.dataset.display = "on"; */
-        else if (event.target.dataset.modalButton === 'close')
-            closeModal();
-        /* modal.dataset.display = "off"; */
-    }
-
-    function openModal() {
-        modal.dataset.display = "on";
-    }
-
-    function closeModal() {
-        modal.dataset.display = "off";
-    }
-
+  init() {
+    this.open.addEventListener("click", this.actionInModal);
+    this.close.addEventListener("click", this.actionInModal);
+    return this;
+  }
+  
 }
 

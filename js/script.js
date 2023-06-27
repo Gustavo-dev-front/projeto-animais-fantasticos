@@ -2,7 +2,7 @@ import ScrollSuave from "./modules/scroll-suave.js";
 import initScrollDisplay from "./modules/scroll-display.js";
 import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tabnav.js";
-import initModal from "./modules/modal.js";
+import Modal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import menuMobileShow from "./modules/menuMobile.js";
@@ -18,10 +18,11 @@ accordion.init();
 const tabNav = new TabNav("[data-component='lista-animais'] img", '[data-component = "descricao-animais"]');
 tabNav.init();
 
-console.log(tabNav.container);
+const modal = new Modal('[data-component="modal-container"]', '[data-modal-button="open"]', '[data-modal-button="close"]');
+modal.init();
 
 initScrollDisplay();
-initModal();
+
 initTooltip();
 initDropdown();
 menuMobileShow();
