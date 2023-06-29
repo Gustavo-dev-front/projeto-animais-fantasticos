@@ -1,4 +1,4 @@
-import animaNumeros from './animaNumeros.js';
+import AnimaNumeros from './animaNumeros.js';
 
 export default async function fetchAnimais() {
 
@@ -24,7 +24,8 @@ export default async function fetchAnimais() {
             value.innerText = animal.numero;
             container.appendChild(value);
         });
-        animaNumeros();
+        const animaNumeros = new AnimaNumeros('.container-numeros span', '#numeros');
+        animaNumeros.init();
     }
 }
 
