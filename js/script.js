@@ -4,7 +4,7 @@ import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tabnav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
-import initDropdown from "./modules/dropdown.js";
+import Dropdown from "./modules/dropdown.js";
 import menuMobileShow from "./modules/menuMobile.js";
 import checkOpen from "./modules/checkOpen.js";
 import fetchAnimais from "./modules/fetchAnimais.js";
@@ -31,7 +31,9 @@ tooltip.init();
 const scrollAnimation = new ScrollAnimation("[data-anime='scroll']");
 scrollAnimation.init();
 
-initDropdown();
+const dropdown = new Dropdown("[data-dropdown-menu]", ["click", "touchstart"]);
+dropdown.init();
+
 menuMobileShow();
 checkOpen();
 fetchAnimais();
