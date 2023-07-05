@@ -1,12 +1,15 @@
-export default function menuMobileShow() {
+export default class MenuMobile {
+  constructor(buttonTrigger, events) {
+    this.buttonTrigger = document.querySelector(buttonTrigger);
+    this.events = events;
+    this.handleButton = this.handleButton.bind(this);
+  }
 
-}
+  handleButton() {
+    this.buttonTrigger.classList.toggle("ativo");
+  }
 
-const buttonTrigger = document.querySelector('[data-mobile-menu]');
-['click', 'touchstart'].forEach((event) => {
-    buttonTrigger.addEventListener(event, handleButton);
-});
-
-function handleButton() {
-    this.classList.toggle('ativo');
+  init() {
+    this.events.forEach((event) => this.buttonTrigger.addEventListener(event, this.handleButton));
+  }
 }

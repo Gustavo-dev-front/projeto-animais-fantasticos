@@ -5,7 +5,7 @@ import TabNav from "./modules/tabnav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import Dropdown from "./modules/dropdown.js";
-import menuMobileShow from "./modules/menuMobile.js";
+import MenuMobile from "./modules/menuMobile.js";
 import checkOpen from "./modules/checkOpen.js";
 import fetchAnimais from "./modules/fetchAnimais.js";
 
@@ -34,6 +34,8 @@ scrollAnimation.init();
 const dropdown = new Dropdown("[data-dropdown-menu]", ["click", "touchstart"]);
 dropdown.init();
 
-menuMobileShow();
+const menuMobile = new MenuMobile("[data-mobile-menu]", ["click", "touchstart"]);
+menuMobile.init();
+
 checkOpen();
 fetchAnimais();
