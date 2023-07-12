@@ -5,7 +5,8 @@ export default class MenuMobile {
     this.handleButton = this.handleButton.bind(this);
   }
 
-  handleButton() {
+  handleButton(event) {
+    event.preventDefault();
     this.buttonTrigger.classList.toggle("ativo");
   }
 
