@@ -8,6 +8,7 @@ import Dropdown from "./modules/dropdown.js";
 import MenuMobile from "./modules/menuMobile.js";
 import checkOpen from "./modules/checkOpen.js";
 import fetchAnimais from "./modules/fetchAnimais.js";
+import SlideNav from "./modules/slide.js";
 
 const scrollSuave = new ScrollSuave('header nav a[href^="#"]:not([href="#"])');
 scrollSuave.init();
@@ -39,3 +40,7 @@ menuMobile.init();
 
 checkOpen();
 fetchAnimais();
+
+const slide = new SlideNav(".wrapper", ".slide");
+slide.init();
+slide.addControl(".custom-controls");
